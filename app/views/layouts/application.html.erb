@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GyakutenCloneGroup</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +11,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+    </header>
+    <main>
+      <div class="base-container">
+        <%= yield %>
+      </div>
+    </main>
+    <footer>
+
+    </footer>
   </body>
 </html>
