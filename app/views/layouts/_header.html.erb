@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <a class="navbar-brand" href="#">やんばるCODE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <% if user_signed_in? %>
+        <li class="nav-item active dropdown">
+            <button class="btn dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Rails
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to "Ruby/Rails教材", "#",class: "dropdown-item" %>
+              <%= link_to "動画教材", "#",class: "dropdown-item" %>
+              <%= link_to "AWS講座", "#",class: "dropdown-item" %>
+              <%= link_to "プログラミング勉強会", "#",class: "dropdown-item" %>
+              <%= link_to "質問集", "#",class: "dropdown-item" %>
+            </div>
+        </li>
+        <li class="nav-item">
+          <%= link_to "対談", "#",class: "nav-item nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "情報発信", "#",class: "nav-item nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "動画編集講座", "#",class: "nav-item nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ライティング講座", "#",class: "nav-item nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "マネタイズ講座", "#",class: "nav-item nav-link active" %>
+        </li>
+        <li class="nav-item active dropdown">
+            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              PHP
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to "PHPテキスト教材", "#",class: "dropdown-item" %>
+              <%= link_to "PHP動画教材", "#",class: "dropdown-item" %>
+            </div>
+        </li>
+        <li class="nav-item">
+          <%= link_to "LINE@", "#",class: "nav-item nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "マイページ", "#",class: "nav-item nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" },class: "nav-item nav-link active" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "ログイン", new_user_session_path,class: "nav-item nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "新規登録", new_user_registration_path,class: "nav-item nav-link active" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
