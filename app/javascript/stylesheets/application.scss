@@ -2,10 +2,36 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap/scss/bootstrap";
- .base-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
-  }
-  
+@import "bootstrap/scss/bootstrap";
+.base-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+// 共通部分
+body {
+  padding-top: 56px;
+}
+
+// ヘッダー
+.nav-item {
+  font-size: small;
+}
+#dropdownMenuButton {
+  color: white;
+  margin-left: 0;
+  margin-top: 5px;
+  padding: 0;
+}
+
+// フラッシュ
+// エラーが無い場合
+.alert-notice {
+  @extend .alert-info;
+}
+
+// エラーが有る場合
+.alert-alert {
+  @extend .alert-danger;
+}

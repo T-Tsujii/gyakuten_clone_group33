@@ -1,0 +1,18 @@
+<h1 class="text-center">AWS講座</h1>
+<p>注意！！！：AWSのEC2やRDSは有料サービスとなります。無駄な料金を請求されないためにも、不要なインスタンスは停止・削除をしてください。</p>
+<table class="table table-striped">
+  <thead class="bg-primary text-white">
+    <tr>
+      <th scope="col">NO.</th>
+      <th scope="col">内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @aws_texts.each_with_index do |aws_text,i|%>
+      <tr>
+        <th scope="row"><%= i+1 %></th>
+        <td><%= link_to aws_text.title, aws_text %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

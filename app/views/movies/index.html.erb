@@ -1,2 +1,21 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <%@movies.each.with_index(@movies.offset_value + 1) do |movie,i|%>
+      <div class="col-sm-6 col-lg-4 card-columns card-deck" >
+        <div class="card " style="width: 25rem;">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="<%=movie.url%>" allowfullscreen></iframe>
+          </div>
+          <div class="card-body" style="height: 15rem;">
+            <h4 class="card-text">Lv.<%= i %>：<%= movie.title %></h4>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= paginate @movies %>
+  </div>
+</div>
+
+
+
+
