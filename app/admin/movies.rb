@@ -1,3 +1,3 @@
 ActiveAdmin.register Movie do
-  permit_params :name, :title, :url
+  permit_params :title, :url
 end

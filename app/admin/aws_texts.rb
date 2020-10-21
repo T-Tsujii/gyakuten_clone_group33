@@ -1,3 +1,3 @@
 ActiveAdmin.register AwsText do
-  permit_params :name, :title, :content
+  permit_params :title, :content
 end
