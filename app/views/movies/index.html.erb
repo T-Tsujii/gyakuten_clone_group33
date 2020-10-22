@@ -1,4 +1,11 @@
+
+
 <div class="container">
+  <%= search_form_for @q do |f|%>
+    <%= f.label :title_cont,"動画教材タイトル" %>
+    <%= f.search_field :title_cont %>
+    <%= f.submit "検索"%>
+  <% end %>
   <div class="row">
     <%@movies.each.with_index(@movies.offset_value + 1) do |movie,i|%>
       <div class="col-sm-6 col-lg-4 card-columns card-deck" >
