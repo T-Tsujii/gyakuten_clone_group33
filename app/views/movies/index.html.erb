@@ -1,3 +1,20 @@
+<body>
+  <div class="wrapper">
+    <div class="search-area">
+      <form>
+        <input type="text" id="search-text" placeholder="検索ワードを入力">
+      </form>
+      <div class="search-result">
+        <div class="search-result__hit-num"></div>
+        <div id="search-result__list"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
 
   <div class="row">
     <%@movies.each.with_index(@movies.offset_value + 1) do |movie,i|%>
