@@ -11,11 +11,10 @@
     </div>
   </div>
 
+<div id="tag_info" data-json="<%= @movies.to_json %>" ></div>
 
 
-
-
-
+<div class="container">
   <div class="row">
     <%@movies.each.with_index(@movies.offset_value + 1) do |movie,i|%>
       <div class="col-sm-6 col-lg-4 card-columns card-deck" >
@@ -32,6 +31,8 @@
     <%= paginate @movies %>
   </div>
 </div>
+
+
 
 
 

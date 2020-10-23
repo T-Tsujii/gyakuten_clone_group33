@@ -1,5 +1,6 @@
 $(function () {
   searchWord = function(){
+    tags = JSON.parse(document.getElementById('tag_info').dataset.json);
     var searchResult,
         searchText = $(this).val(), // 検索ボックスに入力された値
         targetText,
