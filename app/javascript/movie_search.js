@@ -1,11 +1,11 @@
-$(function () {
+$(document).on("turbolinks:load",function() {
   searchWord = function(){
-    tags = JSON.parse(document.getElementById('tag_info').dataset.json);
+    var tags = JSON.parse(document.getElementById('tag_info').dataset.json);
     var searchResult,
         searchText = $(this).val(), // 検索ボックスに入力された値
         targetText,
         hitNum;
-
+  
     // 検索結果を格納するための配列を用意
     searchResult = [];
 
@@ -15,7 +15,7 @@ $(function () {
 
     // 検索ボックスに値が入ってる場合
     if (searchText != '') {
-      $('.card-text').each(function() {
+      $('.movie_title').each(function() {
         targetText = $(this).text();
 
         // 検索対象となるリストに入力された文字列が存在するかどうかを判断
