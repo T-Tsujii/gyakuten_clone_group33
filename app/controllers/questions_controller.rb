@@ -4,15 +4,17 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @question = Question.find(params[:id])
   end
 
   def new
+    @question = Question.new
 
   end
 
   def create
     question = Question.create!(question_params)
-    redirect_to question
+    redirect_to question, notice: "質問を投稿しました"
   end
 
   def edit
