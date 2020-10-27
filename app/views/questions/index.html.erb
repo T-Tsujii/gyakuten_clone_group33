@@ -1,0 +1,14 @@
+<h2>新規投稿</h2>
+<%= form_with model: @question, local: true do |form| %>
+  <div>
+    <%= form.label :title, "【質問】" %><br>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :detail, "【詳細】" %><br>
+    <%= form.text_field :detail %>
+  </div>
+  <div>
+    <%= form.submit "送信" %>
+  </div>
+<% end %>

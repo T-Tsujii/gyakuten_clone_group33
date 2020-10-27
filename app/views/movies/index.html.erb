@@ -1,4 +1,11 @@
+
 <div class="container">
+  <%= search_form_for @q do |f|%>
+    <div class="input-group  my-4" >
+      <%= f.search_field :title_cont,class:"form-control col-sm-4 col-lg-3",placeholder:"キーワード検索"%>
+      <%= f.submit "検索",class:"btn btn-primary"%>
+    </div>
+  <% end %>
   <div class="row">
     <%@movies.each.with_index(@movies.offset_value + 1) do |movie,i|%>
       <div class="col-sm-6 col-lg-4 card-columns card-deck" >
@@ -7,7 +14,7 @@
             <iframe class="embed-responsive-item" src="<%=movie.url%>" allowfullscreen></iframe>
           </div>
           <div class="card-body" style="height: 15rem;">
-            <h4 class="card-text">Lv.<%= i %>：<%= movie.title %></h4>
+            <h4 class="card-text">Lv.<%= i %>：<span class="movie_title"><%= movie.title %></span></h4>
           </div>
         </div>
       </div>
@@ -15,6 +22,8 @@
     <%= paginate @movies %>
   </div>
 </div>
+
+
 
 
 
