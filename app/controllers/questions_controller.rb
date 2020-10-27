@@ -13,15 +13,6 @@ class QuestionsController < ApplicationController
     redirect_to question, notice: "質問を投稿しました"
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
   private
   
   def set_question
