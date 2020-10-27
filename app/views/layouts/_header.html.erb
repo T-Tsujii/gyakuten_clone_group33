@@ -13,26 +13,26 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <%= link_to "Ruby/Rails教材", "#",class: "dropdown-item" %>
-              <%= link_to "動画教材", root_path,class: "dropdown-item" %>
+              <%= link_to "動画教材", movies_path,class: "dropdown-item" %>
               <%= link_to "AWS講座", aws_texts_path,class: "dropdown-item" %>
-              <%= link_to "プログラミング勉強会", "#",class: "dropdown-item" %>
+              <%= link_to "プログラミング勉強会", movies_path(genre: "Live"),class: "dropdown-item" %>
               <%= link_to "質問集", questions_path,class: "dropdown-item" %>
             </div>
         </li>
         <li class="nav-item">
-          <%= link_to "対談", "#",class: "nav-item nav-link active" %>
+          <%= link_to "対談", movies_path(genre: "Talk"),class: "nav-item nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to "情報発信", "#",class: "nav-item nav-link active" %>
+          <%= link_to "情報発信", movies_path(genre: "Marketing"),class: "nav-item nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to "動画編集講座", "#",class: "nav-item nav-link active" %>
+          <%= link_to "動画編集講座", movies_path(genre: "Movie"),class: "nav-item nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to "ライティング講座", "#",class: "nav-item nav-link active" %>
+          <%= link_to "ライティング講座", movies_path(genre: "Writing"),class: "nav-item nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to "マネタイズ講座", "#",class: "nav-item nav-link active" %>
+          <%= link_to "マネタイズ講座", movies_path(genre: "Money"),class: "nav-item nav-link active" %>
         </li>
         <li class="nav-item active dropdown">
             <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -40,7 +40,7 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <%= link_to "PHPテキスト教材", "#",class: "dropdown-item" %>
-              <%= link_to "PHP動画教材", "#",class: "dropdown-item" %>
+              <%= link_to "PHP動画教材", movies_path(genre: "Php"),class: "dropdown-item" %>
             </div>
         </li>
         <li class="nav-item">
