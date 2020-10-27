@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   def index
     @question = Question.new
+    @questions = Question.order(id: :desc)
   end
 
   def show
@@ -23,6 +24,10 @@ class QuestionsController < ApplicationController
 
   private
   
+  def set_question
+    @question = Question.find(params[:id])  
+  end
+
   def question_params
     params.require(:question).permit(:title, :detail)
   end
