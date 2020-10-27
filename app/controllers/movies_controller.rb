@@ -3,7 +3,10 @@ class MoviesController < ApplicationController
   PER_PAGE = 20
 
   def index
-    @movies = Movie.page(params[:page]).per(PER_PAGE)
-    
+    if params[:genre].present?
+      @movies = Movie.where(title: params[:genre]).page(params[:page]).per(PER_PAGE)
+    else
+      @movies = Movie.page(params[:page]).per(PER_PAGE)
+    end
   end
 end
