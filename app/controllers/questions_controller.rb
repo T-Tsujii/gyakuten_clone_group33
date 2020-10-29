@@ -1,11 +1,14 @@
 class QuestionsController < ApplicationController
+
+  before_action :set_question, only: %i[show edit update destroy]
+
   def index
     @question = Question.new
     @questions = Question.order(id: :desc)
   end
 
   def show
-    @question = Question.find(params[:id])
+
   end
 
   def create
