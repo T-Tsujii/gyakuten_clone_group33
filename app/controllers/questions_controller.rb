@@ -1,10 +1,14 @@
 class QuestionsController < ApplicationController
+
+  before_action :set_question, only: %i[show edit update destroy]
+
   def index
     @question = Question.new
+    @questions = Question.order(id: :desc)
   end
 
   def show
-    @question = Question.find(params[:id])
+
   end
 
   def create
@@ -12,17 +16,12 @@ class QuestionsController < ApplicationController
     redirect_to question, notice: "質問を投稿しました"
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
   private
   
+  def set_question
+    @question = Question.find(params[:id])  
+  end
+
   def question_params
     params.require(:question).permit(:title, :detail)
   end
