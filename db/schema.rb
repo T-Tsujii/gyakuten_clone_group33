@@ -50,11 +50,11 @@ ActiveRecord::Schema.define(version: 2020_10_31_052559) do
 
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "movie_id", null: false
+    t.bigint "aws_texts_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["movie_id"], name: "index_likes_on_movie_id"
-    t.index ["user_id", "movie_id"], name: "index_likes_on_user_id_and_movie_id", unique: true
+    t.index ["aws_texts_id"], name: "index_likes_on_aws_texts_id"
+    t.index ["user_id", "aws_texts_id"], name: "index_likes_on_user_id_and_aws_texts_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -84,6 +84,6 @@ ActiveRecord::Schema.define(version: 2020_10_31_052559) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "likes", "movies"
+  add_foreign_key "likes", "aws_texts", column: "aws_texts_id"
   add_foreign_key "likes", "users"
 end
