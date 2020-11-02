@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      question: 質問
+      answer: 回答
+    attributes:
+      question:
+        detail: 詳細
+        user: ユーザー
+      answer:
+        user: ユーザー
+        question: 質問

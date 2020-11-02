@@ -1,3 +1,29 @@
-<h2>投稿詳細</h2>
-<p>【質問】<br> <%= @question.title %></p>
-<p>【詳細】<br> <%= @question.detail %></p>
+<p>【質問】<br> <%= markdown(@question.title) %></p>
+<p>【詳細】<br> <%= markdown(@question.detail) %></p>
+
+<h2>回答</h2>
+<% @answers.each do |a| %>
+  <div>
+    <a href="/users<%= @question.user.id %>"><%= a.user.email %></a>
+    <%= a.content %>
+    <hr>
+  </div>
+<% end %>
+
+<h2>回答投稿</h2>
+<%= form_with model: @answer, local: true do |form| %>
+  <div class="form-group">
+    <%= form.label :title, "【回答】" %>
+    <%= form.text_area :content, class: "form-control" %>
+  <div>
+    <%= form.submit "送信", class: "btn btn-primary btn-block" %>
+  </div>
+<% end %>
+
+<% if current_user.id == @question.user.id  %>
+  <p>
+    <%= link_to "編集", edit_question_path(@question) %>
+    <%= link_to "削除", question_path(@question), method: :delete, data: { confirm: "削除しますか？" } %>
+  </p>
+<% end %>
+<p><%= link_to "質問一覧へ", questions_path %></p>
