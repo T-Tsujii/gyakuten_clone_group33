@@ -14,11 +14,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    # @question = current_user.questions.create!(question_params)
-    # redirect_to question, notice: "質問を投稿しました"
-    @question = Question.new(question_params)
-    @question.user_id = current_user.id
-    if @question.save
+    @question = current_user.questions.new(question_params)
+    if @question.save!
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)

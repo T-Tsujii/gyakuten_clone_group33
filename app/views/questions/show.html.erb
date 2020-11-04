@@ -5,16 +5,17 @@
 <% @answers.each do |a| %>
   <div>
     <a href="/users<%= @question.user.id %>"><%= a.user.email %></a>
-    <%= a.content %>
+    <%= markdown(a.content) %>
     <hr>
   </div>
 <% end %>
 
 <h2>回答投稿</h2>
-<%= form_with model: @answer, local: true do |form| %>
+<%= form_with model: [@question, @answer], local: true do |form| %>
   <div class="form-group">
     <%= form.label :title, "【回答】" %>
     <%= form.text_area :content, class: "form-control" %>
+  </div>
   <div>
     <%= form.submit "送信", class: "btn btn-primary btn-block" %>
   </div>
