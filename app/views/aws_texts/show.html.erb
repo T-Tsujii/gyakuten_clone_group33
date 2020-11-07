@@ -2,12 +2,4 @@
 <p>
   <%= markdown(@aws_text.content) %>
 </p>
-<p>
-  <% if @post.liked_by?(current_user) %>
-    <%# 「いいね！」済み %>
-    ★
-  <% else %>
-    <%# 「いいね」していない %>
-    ☆
-  <% end %>
-</p>
+

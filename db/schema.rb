@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_052559) do
+ActiveRecord::Schema.define(version: 2020_11_04_130318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,11 +50,11 @@ ActiveRecord::Schema.define(version: 2020_10_31_052559) do
 
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "aws_texts_id", null: false
+    t.bigint "aws_text_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["aws_texts_id"], name: "index_likes_on_aws_texts_id"
-    t.index ["user_id", "aws_texts_id"], name: "index_likes_on_user_id_and_aws_texts_id", unique: true
+    t.index ["aws_text_id"], name: "index_likes_on_aws_text_id"
+    t.index ["user_id", "aws_text_id"], name: "index_likes_on_user_id_and_aws_text_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -84,6 +84,6 @@ ActiveRecord::Schema.define(version: 2020_10_31_052559) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "likes", "aws_texts", column: "aws_texts_id"
+  add_foreign_key "likes", "aws_texts"
   add_foreign_key "likes", "users"
 end
