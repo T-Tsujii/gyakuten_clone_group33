@@ -14,9 +14,11 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = current_user.questions.new(question_params)
-    if @question.save!
+    @question = current_user.questions.create!(question_params)
+    # redirect_to @question, notice: "質問の投稿が完了しました"
+    if @question.save
       redirect_back(fallback_location: root_path)
+      flash.now[:notice] = "質問の投稿が完了しました"
     else
       redirect_back(fallback_location: root_path)
     end
@@ -42,8 +44,8 @@ class QuestionsController < ApplicationController
   end
 
   def set_question
-    @question = current_user.questions.find_by(id: params[:id])  
-    redirect_to root_path, alert: "権限がありません"
+    @question = current_user.questions.find(params[:id])  
+    # redirect_to root_path, alert: "権限がありません"
   end
 
 end

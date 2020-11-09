@@ -5,8 +5,10 @@ ja:
       answer: 回答
     attributes:
       question:
+        title: タイトル
         detail: 詳細
         user: ユーザー
       answer:
+        content: 内容
         user: ユーザー
         question: 質問

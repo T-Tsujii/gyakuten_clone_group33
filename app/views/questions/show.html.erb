@@ -1,26 +1,35 @@
 <p>【質問】<br> <%= markdown(@question.title) %></p>
 <p>【詳細】<br> <%= markdown(@question.detail) %></p>
 
-<h2>回答</h2>
+<h3>回答</h3>
 <% @answers.each do |a| %>
   <div>
-    <a href="/users<%= @question.user.id %>"><%= a.user.email %></a>
     <%= markdown(a.content) %>
     <hr>
   </div>
 <% end %>
 
-<h2>回答投稿</h2>
-<%= form_with model: [@question, @answer], local: true do |form| %>
-  <div class="form-group">
-    <%= form.label :title, "【回答】" %>
-    <%= form.text_area :content, class: "form-control" %>
-  </div>
-  <div>
-    <%= form.submit "送信", class: "btn btn-primary btn-block" %>
-  </div>
+<%# 質問に対してuserが回答しているか否かで回答フォームの表示・非表示を切り替え %>
+<% if @question.answerd_by?(current_user) %>
+  <%# <p>
+    <%= link_to "回答編集", edit_answer_path(@answer) %>
+    <%# <%= link_to "回答削除", answer_path(@answer), method: :delete, data: { confirm: "削除しますか？" } %>
+  <%# </p> %>
+<% else %>
+  <h2>回答投稿</h2>
+    <%= form_with model: [@question, @answer], local: true do |form| %>
+      <div class="form-group">
+        <%= form.label :title, "【回答】" %>
+        <%= form.text_area :content, class: "form-control" %>
+      </div>
+
+      <div>
+        <%= form.submit "送信", class: "btn btn-primary btn-block" %>
+      </div>
+    <% end %>
 <% end %>
 
+<%# 質問が自分の投稿であれば編集、削除ボタンを表示 %>
 <% if current_user.id == @question.user.id  %>
   <p>
     <%= link_to "編集", edit_question_path(@question) %>

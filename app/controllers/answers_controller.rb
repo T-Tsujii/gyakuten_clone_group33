@@ -1,15 +1,19 @@
 class AnswersController < ApplicationController
 
+  before_action :set_answer, only: %i[edit update destroy]
+
   def create
-    @answer = Answer.new(answer_params)
-    @answer.user_id = current_user.id
-    if @answer.save
-      redirect_back(fallback_location: root_path)
-    else
-      redirect_back(fallback_location: root_path)      
-    end
-    # current_user.answers.create!(question_id: params[:question_id])
-    # redirect_back(fallback_location: root_path)
+    @answer = current_user.answers.create!(question_id: params[:question_id], content: [answer_params])
+    redirect_back(fallback_location: root_path)
+  end
+
+  def edit
+
+  end
+
+  def update
+    @answer.update!(answer_params)
+    redirect_to @answer, notice: "質問を更新しました"
   end
 
   def destroy
@@ -21,5 +25,9 @@ class AnswersController < ApplicationController
 
   def answer_params
     params.require(:answer).permit(:content)
+  end
+
+  def set_answer
+    @answer = current_user.answer.find(params[:id])  
   end
 end
