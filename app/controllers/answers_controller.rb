@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
   before_action :set_answer, only: %i[edit update destroy]
 
   def create
-    @answer = current_user.answers.create!(question_id: params[:question_id], content: [answer_params])
+    @answer = current_user.answers.create!(question_id: params[:question_id], content: params[:answer][:content])
     redirect_back(fallback_location: root_path)
   end
 
