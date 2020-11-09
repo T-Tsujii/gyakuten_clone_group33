@@ -13,7 +13,7 @@ class AnswersController < ApplicationController
 
   def update
     @answer.update!(answer_params)
-    redirect_to @answer, notice: "質問を更新しました"
+    redirect_to @answer, notice: "回答を更新しました"
   end
 
   def destroy

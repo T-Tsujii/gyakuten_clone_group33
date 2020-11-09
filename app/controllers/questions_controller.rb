@@ -13,14 +13,17 @@ class QuestionsController < ApplicationController
     @answer = Answer.new
   end
 
+  def new
+
+  end
+
   def create
-    @question = current_user.questions.create!(question_params)
-    # redirect_to @question, notice: "質問の投稿が完了しました"
+    @question = current_user.questions.new(question_params)
     if @question.save
-      redirect_back(fallback_location: root_path)
-      flash.now[:notice] = "質問の投稿が完了しました"
+      redirect_to @question, notice: "質問を投稿しました"
     else
-      redirect_back(fallback_location: root_path)
+      flash.now[:alert] = "投稿に失敗しました" 
+      render :new
     end
   end
 
@@ -28,8 +31,12 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question.update!(question_params)
-    redirect_to @question, notice: "質問を更新しました"
+    if @question.update(question_params)
+      redirect_to @question, notice: "質問を更新しました"      
+    else
+      flash.now[:alert] = "質問の更新に失敗しました"
+      render :edit
+    end
   end
 
   def destroy
@@ -44,8 +51,7 @@ class QuestionsController < ApplicationController
   end
 
   def set_question
-    @question = current_user.questions.find(params[:id])  
-    # redirect_to root_path, alert: "権限がありません"
+    @question = current_user.questions.find(params[:id]) 
   end
 
 end
