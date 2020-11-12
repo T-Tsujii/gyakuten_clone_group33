@@ -1,4 +1,9 @@
 class AwsText < ApplicationRecord
-  has_many :liked_users, through: :likes, source: :user
+  has_many :read_texts, dependent: :destroy
+  has_many :read_texted_users, through: :likes, source: :user
   validates :title, :content, presence: true
+
+  def read_text_by?(user)
+    read_texts.find_by(user_id: user.id).present?
+  end
 end

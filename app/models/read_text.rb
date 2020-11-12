@@ -1,7 +1,7 @@
 class ReadText < ApplicationRecord
   belongs_to :user
-  belongs_to :movie
+  belongs_to :aws_text
   validates :user_id, uniqueness: {
-              scope: :movie_id,
-            }
+                        scope: :aws_text_id,
+                      }
 end

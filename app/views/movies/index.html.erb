@@ -19,15 +19,6 @@
         </div>
       </div>
     <% end %>
-    <p>
-      <% if @movie.liked_by?(current_user) %>
-        <%# 「いいね！」済み %>
-        ★
-      <% else %>
-        <%# 「いいね」していない %>
-        ☆
-      <% end %>
-    </p>
     <%= paginate @movies %>
   </div>
 </div>
