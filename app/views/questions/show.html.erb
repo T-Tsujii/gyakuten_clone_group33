@@ -5,8 +5,8 @@
 <% @answers.each do |a| %>
   <div>
     <%= markdown(a.content) %>
-    <hr>
   </div>
+  <hr>
 <% end %>
 
 <%# 質問に対してuserが回答しているか否かで回答フォームの表示・非表示を切り替え %>

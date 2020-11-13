@@ -3,8 +3,14 @@ class AnswersController < ApplicationController
   before_action :set_answer, only: %i[edit update destroy]
 
   def create
-    @answer = current_user.answers.create!(question_id: params[:question_id], content: params[:answer][:content])
-    redirect_back(fallback_location: root_path)
+    @answer = current_user.answers.new(answer_params)
+    if @answer.save
+      flash[:notice] = "回答を投稿しました"
+      redirect_back(fallback_location: root_path)
+    else
+      flash.now[:alert] = "回答の投稿に失敗しました"
+      render "questions/show"
+    end
   end
 
   def edit
@@ -18,13 +24,13 @@ class AnswersController < ApplicationController
 
   def destroy
     current_user.answers.find_by(question_id: params[:question_id]).destroy!
-    redirect_back(fallback_location: root_path)
+    redirect_to @answer
   end
 
   private
 
   def answer_params
-    params.require(:answer).permit(:content)
+    params.require(:answer).permit(:content).merge params.permit(:question_id)
   end
 
   def set_answer
