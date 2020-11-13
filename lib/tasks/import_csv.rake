@@ -11,7 +11,7 @@ namespace :import_csv do
   desc "Rails動画教材のCSVデータをインポートするタスク"
   task movie: :environment do
     Movie.destroy_all
-    list=Import.csv_data(path: "db/csv_data/movie_data.csv")
+    list=Import.csv_data(path: "db/csv_data/all_movie_data.csv")
     Movie.create!(list)
     puts "Rails動画教材のインポートが完了しました"
   end
