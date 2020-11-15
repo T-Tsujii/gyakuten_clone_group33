@@ -14,3 +14,5 @@ end
 AdminUser.find_or_create_by!(email: ADMIN＿EMAIL) do |user|
   user.password = ADMIN＿PASSWORD
 end
+
+
