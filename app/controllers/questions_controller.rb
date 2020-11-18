@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @question = Question.all
     @question = Question.find(params[:id])
     @answers = @question.answers
     @answer = Answer.new
@@ -22,8 +23,9 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to @question, notice: "質問を投稿しました"
     else
+      @questions = Question.order(id: :desc).includes(:user)
       flash.now[:alert] = "投稿に失敗しました" 
-      render :new
+      render :index
     end
   end
 
