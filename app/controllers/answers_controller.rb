@@ -8,8 +8,7 @@ class AnswersController < ApplicationController
       flash[:notice] = "回答を投稿しました"
       redirect_back(fallback_location: root_path)
     else
-      # @question = Question.find(params[:question_id])
-      @question = Question.new
+      @question = Question.find(params[:question_id])
       @answers = @question.answers
       flash.now[:alert] = "回答の投稿に失敗しました"
       render "questions/show"

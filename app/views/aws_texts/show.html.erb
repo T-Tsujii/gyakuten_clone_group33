@@ -1,4 +1,15 @@
 <h2><%= markdown(@aws_text.title) %></h2>
 <p>
   <%= markdown(@aws_text.content) %>
+  <p id="aws_text-<%= @aws_text.id %>">
+    <% if @aws_text.read_text_by?(current_user) %>
+      <%# 「いいね！」済み %>
+      <%= render "read_text", aws_text: @aws_text %>
+    <% else %>
+      <%# 「いいね」していない %>
+      <%= render "disread_text", aws_text: @aws_text %>
+    <% end %>
+  </p>
 </p>
+
+
