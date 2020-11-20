@@ -1,4 +1,4 @@
-title,detail,user
+title,detail
 railsのscaffoldで作ったアプリケーションの確認画面に遷移するときにエラー,"railsのscaffoldで作ったアプリケーションの雛形に確認画面を実装しようとしているのですが、そこでエラーにハマってます。
 
 確認画面は出せたのですが、そこから投稿するタイミングでエラーが発生します。
@@ -23,7 +23,7 @@ confirm.html.erb
 <% end %>
 ```
 
-どなたか分かれば教えてください。",1
+どなたか分かれば教えてください。"
 rails new でアプリを作った後、bundle exec rake db:createを実行してもエラーが出てしまいデータベースが作れません,"`rails new` でアプリを作った後、`bundle exec rake db:create`を実行してもエラーが出てしまいデータベースが作れません。
 初歩的な事で申し訳ないんですが検索しても今いち解決法がわからないです^^;
 エラー文はこちらです。
@@ -48,7 +48,7 @@ LoadError: Error loading the ‘sqlite3’ Active Record adapter. Missing a gem 
 
 ```
 undefined method `scale' for #<AvatarUploader:0x00007fafe1bce510>
-```",1
+```"
 Dockerアプリをクローンからのデプロイってどうやればいいんでしょうか？,"今Dockerでアプリ作ったんですけど、herokuにデプロイができなくて困ってます。。
 
 `git push heroku master`　すると下記のようにエラーになります。
@@ -95,7 +95,7 @@ remote:
 To https://git.heroku.com/still-garden-98905.git
  ! [remote rejected] master -> master (pre-receive hook declined)
 error: failed to push some refs to 'https://git.heroku.com/still-garden-98905.git'
-```",2
+```"
 `rails new hello_sample -d mysql`  でアプリが立ち上げられない,"Lv.24 Ruby on Rails で Hello World!! のところで1つ質問があります。
 
 `rails new hello_sample -d mysql` をターミナルで入力した後に、以下のようなエラー文が表示されました。
@@ -108,4 +108,4 @@ Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
 
 その後に上記の `An error occurred...` のエラー文が表示され、一旦 `bundle install` をしてみたのですが、同じエラーが出ています。
 
-Lv.23の環境構築では、mysqlのインストールは完了済みです。",2
+Lv.23の環境構築では、mysqlのインストールは完了済みです。"

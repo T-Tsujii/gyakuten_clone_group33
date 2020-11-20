@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   root "movies#index"
   resources :movies
   resources :questions do
-    resource :answers, only: [:create,:edit,:update,:destroy]
+    resource :answers, only: [:create, :edit, :update, :destroy]
+  end
   resources :aws_texts, only: [:index, :show]
   resources :aws_texts do
     resource :read_texts, only: [:create, :destroy]
