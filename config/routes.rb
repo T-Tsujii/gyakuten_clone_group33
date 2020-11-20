@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   root "movies#index"
   resources :movies
+  resources :questions do
+    resource :answers, only: [:create, :edit, :update, :destroy]
+  end
   resources :aws_texts, only: [:index, :show]
-  resources :questions
   resources :aws_texts do
     resource :read_texts, only: [:create, :destroy]
   end

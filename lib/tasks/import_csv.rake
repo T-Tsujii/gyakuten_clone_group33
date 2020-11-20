@@ -24,7 +24,7 @@ namespace :import_csv do
     list = []
     # CSVファイルからインポートするデータを取得し配列に格納
     CSV.foreach(path, headers: true) do |row|
-      list << row.to_h
+      list << row.to_h.merge({user_id: User.ids.sample})
     end
     puts "質問集のインポート処理を開始"
     # インポートができなかった場合の例外処理
