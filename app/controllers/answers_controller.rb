@@ -6,7 +6,8 @@ class AnswersController < ApplicationController
     @answer = current_user.answers.new(answer_params)
     if @answer.save
       flash[:notice] = "回答を投稿しました"
-      redirect_back(fallback_location: root_path)
+      @question = Question.find(params[:question_id])
+      redirect_to @question
     else
       @question = Question.find(params[:question_id])
       @answers = @question.answers

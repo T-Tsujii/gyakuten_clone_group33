@@ -40,7 +40,7 @@ LoadError: Error loading the ‘sqlite3’ Active Record adapter. Missing a gem 
 /Users/shiomiferunando/workspace/crud_sample/vendor/bundle/gems/bootsnap-1.3.2/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:29:in `require’
 /Users/shiomiferunando/workspace/crud_sample/vendor/bundle/gems/activesupport-5.2.2/lib/active_support/dependencies.rb:291:in `block in require’
 /Users/shiomiferunando/workspace/crud_sample/vendor/bundle/gems/activesupport-5.2.2/lib/active_support/dependencies.rb:257:in `load_dependency’
-```",1
+```"
 画像更新時に Undefined Method Scale In CarrierWave というエラーが出る,":avatar属性を更新しようとしたらerrorが出てしまいましたね。
 ちなみにcarrierwaveでアップロードした画像です。
 
